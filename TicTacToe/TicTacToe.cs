@@ -51,7 +51,7 @@ class Player
 
     public bool chooseMove( Game gName, Board bName) // player inputs move, if valid it moves to that location, if not then re input
     {
-        Console.WriteLine($"Player {this.type} please choose where to move on the board.");
+        Console.WriteLine($"Player {this.type} please choose where to move on the board using grid coordinates. (Example: \"1 3\")");
         string s = Console.ReadLine();
         string[] values = s.Split(' ');
         int x = int.Parse(values[0]);
