@@ -2,17 +2,40 @@ Pack userPack = new Pack();
 
 while(true)
 {
-    Console.WriteLine("Type 1 to add a sword to the pack.");
-    Console.WriteLine("Type 2 to see what is in the bag.");
+    Console.WriteLine("Here are the following items you can put into your pack.");
+    Console.WriteLine("1. Arrow\n2. Bow\n3. Rope\n4. Water\n5. Food\n6. Sword");
+    Console.WriteLine("Please enter the number of which item you would like to put in your bag or '7' if you would like the view whats in the bag.");
+    int userInput = Convert.ToInt32(Console.ReadLine());
 
-    userPack.packWatch();
-    Sword sword = new Sword();
-    userPack.Add(sword);
-    userPack.Add(sword);
-    userPack.Add(sword);
-    userPack.packWatch();
+    switch (userInput)
+    {
+        case 1:
+            userPack.Add(new Arrow());
+            break;
+        case 2:
+            userPack.Add(new Bow());
+            break;
+        case 3:
+            userPack.Add(new Rope());
+            break;
+        case 4:
+            userPack.Add(new Water());
+            break;
+        case 5:
+            userPack.Add(new Food());
+            break;
+        case 6:
+            userPack.Add(new Sword());
+            break;
+        case 7:
+            userPack.packWatch();
+            break;
+    }
+   
 
-    break;
+
+
+   
 }
 class InventoryItem
 {
@@ -145,10 +168,18 @@ class Pack
 
     public void packWatch()
     {
-        Console.WriteLine($"The amount of items in the bag is {checkItems()}.");
+        foreach (InventoryItem item in pack)
+        {
+            if (item == null) { break; }
+            Console.WriteLine($"{item}");
+        }
+            Console.WriteLine($"The amount of items in the bag is {checkItems()}.");
         Console.WriteLine($"The current weight of the bag is {checkWeight()}.");
-        Console.WriteLine($"The current volume of the bag is {checkVolume()}.");
-        
+        Console.WriteLine($"The current volume of the bag is {checkVolume()}.\n");
+
     }
 
 }
+
+
+
